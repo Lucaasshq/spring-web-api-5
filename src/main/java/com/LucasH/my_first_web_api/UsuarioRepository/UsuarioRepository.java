@@ -1,6 +1,7 @@
 package com.LucasH.my_first_web_api.UsuarioRepository;
 
 import com.LucasH.my_first_web_api.Model.Usuario;
+import com.LucasH.my_first_web_api.handler.BusinessException;
 import org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,6 +13,9 @@ import java.util.List;
 public class UsuarioRepository {
 
     public void save(Usuario usuario) {
+        if (usuario.getLogin() == null){
+            throw new BusinessException("O campo login é obrigatorio");
+        }
         if (usuario.getId() == null) {
             System.out.println("SAVE - Recebendo o usuário na camada de repositório");
         } else {
