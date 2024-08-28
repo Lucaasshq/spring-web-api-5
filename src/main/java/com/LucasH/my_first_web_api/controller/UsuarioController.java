@@ -16,7 +16,7 @@ public class UsuarioController {
     public List<Usuario> getUsuarios() {
        return usuarioRepository.findAll();
     }
-@GetMapping("/{username}")
+    @GetMapping("/{username}")
     public Usuario getUsuario(@PathVariable("username") String username) {
         return usuarioRepository.findByUsername(username);
     }
