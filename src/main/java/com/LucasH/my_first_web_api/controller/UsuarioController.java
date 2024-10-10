@@ -13,7 +13,7 @@ public class UsuarioController {
     @Autowired
     private UsuarioRepository usuarioRepository;
     @GetMapping()
-    public List<Usuario> getUsuarios() {
+    public List<Usuario> getAllUsuarios() {
        return usuarioRepository.findAll();
     }
     @GetMapping("/{username}")
